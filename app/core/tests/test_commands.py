@@ -1,8 +1,6 @@
 '''
   Test custom Django management commands
 '''
-
-
 from unittest.mock import patch  # to mock the behaivior of the database
 from psycopg2 import OperationalError as Psycopg2Error  # one of the possible
 # errors when the database is not ready
