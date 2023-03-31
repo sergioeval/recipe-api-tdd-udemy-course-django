@@ -33,7 +33,7 @@ RUN python -m venv /py && \
 # to run any python command from the virtual environment we created 
 ENV PATH="/py/bin:$PATH"
 
-USER django-user
+#USER django-user
 
 
 
