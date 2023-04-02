@@ -5,15 +5,16 @@ services:
     build:
       context: .
       args:
-        - DEV=true
+        - DEV=false
+    container_name: django-orig-app-dev
     ports:
       - "8000:8000"
     volumes:
       - ./app:/app
     command: >
-      sh -c  "python manage.py wait_for_db && 
-              python manage.py migrate && 
-              python manage.py runserver 0.0.0.0:8000"
+       sh -c  "python manage.py wait_for_db && 
+               python manage.py migrate && 
+               python manage.py runserver 0.0.0.0:8000"
     environment:
       - DB_HOST=db
       - DB_NAME=devdb
@@ -21,6 +22,7 @@ services:
       - DB_PASS=changeme
     depends_on:
       - db
+    tty: true
   db:
     image: postgres:13-alpine
     volumes:
